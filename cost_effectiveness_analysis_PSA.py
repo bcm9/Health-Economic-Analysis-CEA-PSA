@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 # Define key financial and health-related variables for interventions
 ######################################################################################################################################################
 cost_intervention_A = 10000  # Base cost in GBP for more expensive intervention
-cost_intervention_B = 8000  # Base cost in GBP for standard intervention
+cost_intervention_B = 7000  # Base cost in GBP for standard intervention
 
 qaly_intervention_A = 6 # Quality-Adjusted Life Years for A
 qaly_intervention_B = 4  # Quality-Adjusted Life Years for B
@@ -70,6 +70,9 @@ axes[1].set_ylabel('', fontsize=18, fontweight='bold')
 axes[1].tick_params(axis='both', which='major', labelsize=14)
 axes[1].grid(True, linestyle='--', alpha=0.2)
 plt.tight_layout()
+# Save the figure
+save_folder = 'C:/Users/bc22/OneDrive - King\'s College London/KCL/Projects/HE_code/'
+plt.savefig(save_folder + 'CE_PSA_kde.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 ######################################################################################################################################################
@@ -167,6 +170,9 @@ plt.ylabel(r'$\Delta$ Cost (£)', fontsize=18, fontweight='bold')
 plt.title('Cost-Effectiveness Plane', fontsize=18, fontweight='bold')
 plt.legend()
 plt.grid(True, linestyle='--', alpha=0.2)
+# Save the figure
+save_folder = 'C:/Users/bc22/OneDrive - King\'s College London/KCL/Projects/HE_code/'
+plt.savefig(save_folder + 'CE_plane_PSA.png', dpi=300, bbox_inches='tight')
 plt.show()
 
 ######################################################################################################################################################
