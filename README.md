@@ -17,4 +17,4 @@ This script performs a Cost-Effectiveness Analysis (CEA) of two health intervent
 
 ## Usage
 ```bash
-python cea_analysis.py
+python cost_effectiveness_analysis_PSA.py
