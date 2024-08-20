@@ -200,9 +200,6 @@ def jackknife_mean(df, column):
 # Calculate the jackknife mean ICERs
 jackknife_means = jackknife_mean(PSA_results, 'ICER')
 
-# Calculate the overall mean ICER
-mean_icer = PSA_results['ICER'].mean()
-
 # Calculate the jackknife estimate of variance
 n = len(PSA_results)
 jackknife_variance = (n - 1) / n * np.sum((jackknife_means - mean_icer) ** 2)
