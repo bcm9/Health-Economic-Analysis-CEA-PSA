@@ -53,8 +53,8 @@ qaly_intervention_B_dist = np.random.normal(qaly_intervention_B, qaly_interventi
 fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 plt.rcParams['font.family'] = 'Calibri'
 # Plot costs
-sns.histplot(cost_intervention_A_dist, kde=True, color="#ADD8E6", label="Intervention A", ax=axes[0],alpha=0.7)
-sns.histplot(cost_intervention_B_dist, kde=True, color="#90EE90", label="Intervention B", ax=axes[0],alpha=0.7)
+sns.histplot(cost_intervention_A_dist, kde=True, color="#ADD8E6", label="Intervention A", ax=axes[0],alpha=0.5)
+sns.histplot(cost_intervention_B_dist, kde=True, color="#90EE90", label="Intervention B", ax=axes[0],alpha=0.5)
 axes[0].set_title('Cost Distribution', fontsize=18, fontweight='bold')
 axes[0].set_xlabel('Cost (£)', fontsize=18, fontweight='bold')
 axes[0].set_ylabel('Frequency', fontsize=18, fontweight='bold')
@@ -62,8 +62,8 @@ axes[0].tick_params(axis='both', which='major', labelsize=14)
 axes[0].legend()
 axes[0].grid(True, linestyle='--', alpha=0.2)
 # Plot QALYs
-sns.histplot(qaly_intervention_A_dist, kde=True, color="#ADD8E6", label="Intervention A", ax=axes[1],alpha=0.7)
-sns.histplot(qaly_intervention_B_dist, kde=True, color="#90EE90", label="Intervention B", ax=axes[1],alpha=0.7)
+sns.histplot(qaly_intervention_A_dist, kde=True, color="#ADD8E6", label="Intervention A", ax=axes[1],alpha=0.5)
+sns.histplot(qaly_intervention_B_dist, kde=True, color="#90EE90", label="Intervention B", ax=axes[1],alpha=0.5)
 axes[1].set_title('QALY Distribution', fontsize=18, fontweight='bold')
 axes[1].set_xlabel('QALYs', fontsize=18, fontweight='bold')
 axes[1].set_ylabel('', fontsize=18, fontweight='bold')
