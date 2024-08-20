@@ -1,5 +1,10 @@
 # Health Economic Analysis: Cost-Effectiveness Analysis (CEA)
 
+![](CE_PSA_kde.png)
+
+![](CE_plane_PSA.png)
+
+
 This script performs a Cost-Effectiveness Analysis (CEA) of two health interventions, including a Probabilistic Sensitivity Analysis (PSA) and Jackknife Confidence Interval estimation.
 
 ## Features
