@@ -43,10 +43,15 @@ wtp = 20000  # £20,000 per QALY
 
 # Distributions for PSA, mean, standard deviation set as 20% of mean
 n_simulations=1000
-cost_intervention_A_dist = np.random.normal(cost_intervention_A, cost_intervention_A*.2, n_simulations)  # Mean, standard deviation
-cost_intervention_B_dist = np.random.normal(cost_intervention_B, cost_intervention_B*.2, n_simulations)
-qaly_intervention_A_dist = np.random.normal(qaly_intervention_A, qaly_intervention_A*.2, n_simulations)
-qaly_intervention_B_dist = np.random.normal(qaly_intervention_B, qaly_intervention_B*.2, n_simulations)
+
+# SDs for costs and QALYs based on typical variability
+cost_sd = 0.05  # 5% of mean for costs
+qaly_sd = 0.01  # 1% of mean for QALYs
+
+cost_intervention_A_dist = np.random.normal(cost_intervention_A, cost_intervention_A * cost_sd, n_simulations)
+cost_intervention_B_dist = np.random.normal(cost_intervention_B, cost_intervention_B * cost_sd, n_simulations)
+qaly_intervention_A_dist = np.random.normal(qaly_intervention_A, qaly_intervention_A * qaly_sd, n_simulations)
+qaly_intervention_B_dist = np.random.normal(qaly_intervention_B, qaly_intervention_B * qaly_sd, n_simulations)
 
 # Plot distributions
 # Create a 1x2 panel plot
