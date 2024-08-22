@@ -180,11 +180,14 @@ plt.show()
 #####################################################################################################################################################
 # Here we calculate the mean ICER across all simulations as a summary
 mean_icer = PSA_results['ICER'].mean()
+mean_icer_stable = delta_cost.mean() / delta_qaly.mean()
 
 df_summary = pd.DataFrame({
     'Mean Discounted Cost': [PSA_results['Discounted Cost A'].mean(), PSA_results['Discounted Cost B'].mean()],
     'Mean QALYs': [PSA_results['QALY A'].mean(), PSA_results['QALY B'].mean()],
-    'Mean ICER': [mean_icer, None]
+    'Mean Incremental Cost': [delta_cost.mean(), None],
+    'Mean Incremental QALY': [delta_qaly.mean(), None],
+    'Mean ICER': [mean_icer_stable, None]
 }, index=['Intervention A', 'Intervention B'])
 
 print(df_summary)
