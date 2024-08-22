@@ -179,11 +179,12 @@ plt.grid(True, linestyle='--', alpha=0.2)
 plt.savefig(save_folder + 'CE_plane_PSA.png', dpi=300, bbox_inches='tight')
 plt.show()
 
-######################################################################################################################################################
+#################################################################################################################################################################
 # Summarise the results in a DataFrame
-#####################################################################################################################################################
-# Here we calculate the mean ICER across all simulations as a summary
+#################################################################################################################################################################
+# Here we calculate the mean ICER across all simulations. Can be volatile due to the influence of extreme values, especially when QALY differences are small.
 mean_icer = PSA_results['ICER'].mean()
+# Stable mean ICER provides a more stable and central estimate.
 mean_icer_stable = delta_cost.mean() / delta_qaly.mean()
 
 df_summary = pd.DataFrame({
@@ -215,7 +216,7 @@ jackknife_means = jackknife_mean(PSA_results, 'ICER')
 
 # Calculate the jackknife estimate of variance
 n = len(PSA_results)
-jackknife_variance = (n - 1) / n * np.sum((jackknife_means - mean_icer) ** 2)
+jackknife_variance = (n - 1) / n * np.sum((jackknife_means - mean_icer_stable) ** 2)
 
 # Calculate the standard error
 jackknife_se = np.sqrt(jackknife_variance)
@@ -224,7 +225,7 @@ jackknife_se = np.sqrt(jackknife_variance)
 confidence_level = 0.95
 z_score = 1.96  # For 95% confidence interval
 
-lower_bound = mean_icer - z_score * jackknife_se
-upper_bound = mean_icer + z_score * jackknife_se
+lower_bound = mean_icer_stable - z_score * jackknife_se
+upper_bound = mean_icer_stable + z_score * jackknife_se
 
-print(f"95% Jackknife Confidence Interval for the Mean ICER: (£{lower_bound:.2f}, £{upper_bound:.2f})")
+print(f"95% Jackknife CI for the Mean ICER: (£{lower_bound:.2f}, £{upper_bound:.2f})")
