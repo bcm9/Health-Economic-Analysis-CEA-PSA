@@ -35,8 +35,8 @@ number_of_visits_B = 0
 number_of_tests_B = 0
 
 # Parameters for discounting future costs and QALYs to their present values
-discount_rate = 0.0  # Discount rate according to NICE guidelines is 3.5%
-years = 0             # Time horizon for the analysis
+discount_rate = 0.035  # Discount rate according to NICE guidelines is 3.5%
+years = 5             # Time horizon for the analysis
 
 # Willingness to pay threshold
 wtp = 20000  # £20,000 per QALY
