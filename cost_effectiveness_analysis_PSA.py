@@ -22,7 +22,7 @@ cost_intervention_A = 10000  # Base cost in GBP for more expensive intervention
 cost_intervention_B = 7000  # Base cost in GBP for standard intervention
 
 qaly_intervention_A = 6 # Quality-Adjusted Life Years for A
-qaly_intervention_B = 4  # Quality-Adjusted Life Years for B
+qaly_intervention_B = 5.5  # Quality-Adjusted Life Years for B
 
 # Hypothetical costs in GBP for additional health care utilisation
 cost_per_outpatient_visit = 0
