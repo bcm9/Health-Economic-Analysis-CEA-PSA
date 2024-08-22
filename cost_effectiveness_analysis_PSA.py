@@ -163,7 +163,7 @@ plt.axvline(0, color='black', linestyle='-')  # Vertical zero line
 # Plot WTP threshold
 x_values = [min(-5, -max(delta_qaly) * 1.2), max(5, max(delta_qaly) * 1.2)]
 y_values = [x * wtp for x in x_values]
-plt.plot(x_values, y_values, color='#d62728', linestyle=':', label='WTP threshold')
+plt.plot(x_values, y_values, color='#d62728', linestyle=':', label=f'WTP £{wtp:,.0f}/QALY')
 
 # Formatting plot
 plt.xlim(-max(delta_qaly) * 1.2, max(delta_qaly) * 1.2)
@@ -173,7 +173,7 @@ plt.yticks(fontsize=14)
 plt.xlabel(r'$\Delta$ QALYs', fontsize=18, fontweight='bold')
 plt.ylabel(r'$\Delta$ Cost (£)', fontsize=18, fontweight='bold')
 plt.title('Cost-Effectiveness Plane', fontsize=18, fontweight='bold')
-plt.legend(loc='upper left', fontsize=14, frameon=True, framealpha=0.9, edgecolor='k')
+plt.legend(loc='upper left', fontsize=12, frameon=False, framealpha=0.1)
 plt.grid(True, linestyle='--', alpha=0.2)
 # Save the figure
 plt.savefig(save_folder + 'CE_plane_PSA.png', dpi=300, bbox_inches='tight')
