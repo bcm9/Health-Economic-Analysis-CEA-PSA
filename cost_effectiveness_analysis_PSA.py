@@ -154,7 +154,7 @@ print(PSA_results.describe())
 delta_cost = PSA_results['Discounted Cost A'] - PSA_results['Discounted Cost B']
 delta_qaly = PSA_results['QALY A'] - PSA_results['QALY B']
 
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(7, 6))
 plt.rcParams['font.family'] = 'Calibri'
 plt.scatter(delta_qaly, delta_cost, color='#3498db', label='PSA results', zorder=5, s=50, alpha=0.7, edgecolors='k')
 plt.axhline(0, color='black', linestyle='-')  # Horizontal zero line
