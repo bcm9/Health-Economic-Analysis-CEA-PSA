@@ -156,7 +156,7 @@ delta_qaly = PSA_results['QALY A'] - PSA_results['QALY B']
 
 plt.figure(figsize=(8, 6))
 plt.rcParams['font.family'] = 'Calibri'
-plt.scatter(delta_qaly, delta_cost, color='#3498db', label='PSA results', s=20, edgecolors='#2980b9', zorder=5)
+plt.scatter(delta_qaly, delta_cost, color='#3498db', label='PSA results', zorder=5, s=50, alpha=0.7, edgecolors='k')
 plt.axhline(0, color='black', linestyle='-')  # Horizontal zero line
 plt.axvline(0, color='black', linestyle='-')  # Vertical zero line
 
@@ -173,7 +173,7 @@ plt.yticks(fontsize=14)
 plt.xlabel(r'$\Delta$ QALYs', fontsize=18, fontweight='bold')
 plt.ylabel(r'$\Delta$ Cost (£)', fontsize=18, fontweight='bold')
 plt.title('Cost-Effectiveness Plane', fontsize=18, fontweight='bold')
-plt.legend()
+plt.legend(loc='upper left', fontsize=14, frameon=True, framealpha=0.9, edgecolor='k')
 plt.grid(True, linestyle='--', alpha=0.2)
 # Save the figure
 plt.savefig(save_folder + 'CE_plane_PSA.png', dpi=300, bbox_inches='tight')
