@@ -1,7 +1,7 @@
 # Health Economic Analysis: Cost-Effectiveness Analysis (CEA)
 
 
-This script performs a Cost-Effectiveness Analysis (CEA) of two health interventions, including a Probabilistic Sensitivity Analysis (PSA) and Jackknife Confidence Interval estimation. The script uses a default NICE willingness to pay threshold of £20,000 (adjustable) and applies a discount rate of 3.5% (also adjustable).
+This script performs a Cost-Effectiveness Analysis (CEA) of two health interventions, including a Probabilistic Sensitivity Analysis (PSA) and Jackknife Confidence Interval estimation. The script uses a default NICE willingness to pay threshold of £20,000 (adjustable) and applies a default NICE discount rate of 3.5% (also adjustable).
 
 ## Features
 - Total cost and QALY calculations.
