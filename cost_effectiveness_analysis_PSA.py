@@ -64,7 +64,7 @@ axes[0].set_title('Cost Distribution', fontsize=18, fontweight='bold')
 axes[0].set_xlabel('Cost (£)', fontsize=18, fontweight='bold')
 axes[0].set_ylabel('Frequency', fontsize=18, fontweight='bold')
 axes[0].tick_params(axis='both', which='major', labelsize=14)
-axes[0].legend()
+axes[0].legend(frameon=False, framealpha=0.1)
 axes[0].grid(True, linestyle='--', alpha=0.2)
 # Plot QALYs
 sns.histplot(qaly_intervention_A_dist, kde=True, color="#ADD8E6", label="Intervention A", ax=axes[1],alpha=0.5)
