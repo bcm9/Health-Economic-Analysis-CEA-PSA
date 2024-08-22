@@ -76,7 +76,7 @@ axes[1].tick_params(axis='both', which='major', labelsize=14)
 axes[1].grid(True, linestyle='--', alpha=0.2)
 plt.tight_layout()
 # Save the figure
-save_folder = 'C:/Users/bc22/OneDrive - King\'s College London/KCL/Projects/HE_code/'
+save_folder = 'C:/Users/bc22/OneDrive - King\'s College London/KCL/Projects/HE_code/Figures/'
 plt.savefig(save_folder + 'CE_PSA_kde.png', dpi=300, bbox_inches='tight')
 plt.show()
 
@@ -176,7 +176,6 @@ plt.title('Cost-Effectiveness Plane', fontsize=18, fontweight='bold')
 plt.legend()
 plt.grid(True, linestyle='--', alpha=0.2)
 # Save the figure
-save_folder = 'C:/Users/bc22/OneDrive - King\'s College London/KCL/Projects/HE_code/'
 plt.savefig(save_folder + 'CE_plane_PSA.png', dpi=300, bbox_inches='tight')
 plt.show()
 
