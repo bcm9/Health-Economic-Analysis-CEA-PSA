@@ -9,6 +9,6 @@ This script performs a Cost-Effectiveness Analysis (CEA) of two health intervent
 - Probabilistic Sensitivity Analysis (PSA) with visualizations.
 - Jackknife method for estimating 95% confidence intervals for the ICER.
 
-<img src="./CE_PSA_kde.png" alt="Simulation Plot" width="400"/>
+<img src="./CE_PSA_kde.png" alt="Simulation Plot" width="800"/>
 
 <img src="./CE_plane_PSA.png" alt="Simulation Plot" width="400"/>
