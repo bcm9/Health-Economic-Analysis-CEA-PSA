@@ -19,10 +19,10 @@ import matplotlib.pyplot as plt
 # Define key financial and health-related variables for interventions
 ######################################################################################################################################################
 cost_intervention_A = 10000  # Base cost in GBP for standard intervention
-cost_intervention_B = 7000  # Base cost in GBP for new intervention
+cost_intervention_B = 15000  # Base cost in GBP for new intervention
 
-qaly_intervention_A = 6 # Quality-Adjusted Life Years for A
-qaly_intervention_B = 7.5  # Quality-Adjusted Life Years for B
+qaly_intervention_A = 2 # Quality-Adjusted Life Years for A
+qaly_intervention_B = 2.5  # Quality-Adjusted Life Years for B
 
 # Hypothetical costs in GBP for additional health care utilisation
 cost_per_outpatient_visit = 0
@@ -76,7 +76,7 @@ axes[1].tick_params(axis='both', which='major', labelsize=14)
 axes[1].grid(True, linestyle='--', alpha=0.2)
 plt.tight_layout()
 # Save the figure
-save_folder = 'C:/Users/bc22/OneDrive - King\'s College London/KCL/Projects/HE_code/Figures/'
+save_folder = 'C:/Users/bc22/OneDrive/Documents/code/HE_code/Cost effectiveness analysis/'
 plt.savefig(save_folder + 'CE_PSA_kde.png', dpi=300, bbox_inches='tight')
 plt.show()
 
