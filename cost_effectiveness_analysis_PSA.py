@@ -18,11 +18,11 @@ import matplotlib.pyplot as plt
 ######################################################################################################################################################
 # Define key financial and health-related variables for interventions
 ######################################################################################################################################################
-cost_intervention_A = 10000  # Base cost in GBP for more expensive intervention
-cost_intervention_B = 7000  # Base cost in GBP for standard intervention
+cost_intervention_A = 10000  # Base cost in GBP for standard intervention
+cost_intervention_B = 7000  # Base cost in GBP for new intervention
 
 qaly_intervention_A = 6 # Quality-Adjusted Life Years for A
-qaly_intervention_B = 5.5  # Quality-Adjusted Life Years for B
+qaly_intervention_B = 7.5  # Quality-Adjusted Life Years for B
 
 # Hypothetical costs in GBP for additional health care utilisation
 cost_per_outpatient_visit = 0
@@ -103,8 +103,8 @@ def calculate_cost_per_qaly(cost, qaly):
 # This makes it easier to decide if the extra cost is worth the extra benefit.
 def calculate_icer(cost1, cost2, qaly1, qaly2):
     """Calculates the Incremental Cost-Effectiveness Ratio (ICER) between two interventions."""
-    delta_cost = abs(cost1 - cost2)
-    delta_qaly = qaly1 - qaly2
+    delta_cost = abs(cost2 - cost1)
+    delta_qaly = qaly2 - qaly1
     if delta_qaly == 0:
         return float('inf')  # Prevent division by zero
     return delta_cost / delta_qaly
@@ -151,8 +151,8 @@ print(PSA_results.describe())
 ######################################################################################################################################################
 # Plot results with CEA plane
 #####################################################################################################################################################
-delta_cost = PSA_results['Discounted Cost A'] - PSA_results['Discounted Cost B']
-delta_qaly = PSA_results['QALY A'] - PSA_results['QALY B']
+delta_cost = PSA_results['Discounted Cost B'] - PSA_results['Discounted Cost A']
+delta_qaly = PSA_results['QALY B'] - PSA_results['QALY A']
 
 plt.figure(figsize=(7, 6))
 plt.rcParams['font.family'] = 'Calibri'
@@ -166,8 +166,9 @@ y_values = [x * wtp for x in x_values]
 plt.plot(x_values, y_values, color='#d62728', linestyle=':', label=f'WTP £{wtp:,.0f}/QALY')
 
 # Formatting plot
-plt.xlim(-max(delta_qaly) * 1.2, max(delta_qaly) * 1.2)
-plt.ylim(-max(delta_cost) * 1.2, max(delta_cost) * 1.2)
+plt.xlim(-abs(max(delta_qaly)) * 1.2, abs(max(delta_qaly)) * 1.2)
+# plt.ylim(-abs(max(delta_cost)) * 1.2, abs(max(delta_cost)) * 1.2)
+plt.ylim(-30000, 30000)
 plt.xticks(fontsize=14)
 plt.yticks(fontsize=14)
 plt.xlabel(r'$\Delta$ QALYs', fontsize=18, fontweight='bold')
