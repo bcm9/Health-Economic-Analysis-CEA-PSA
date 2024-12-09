@@ -44,7 +44,7 @@ wtp = 20000  # £20,000 per QALY
 # Distributions for PSA, mean, standard deviation set as 20% of mean
 n_simulations=1000
 
-# SDs for costs and QALYs based on typical variability
+# Proportional SDs for costs and QALYs based on typical variability
 cost_sd = 0.05  # 5% of mean for costs
 qaly_sd = 0.01  # 1% of mean for QALYs
 
