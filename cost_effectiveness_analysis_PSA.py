@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 # Define key financial and health-related variables for interventions
 ######################################################################################################################################################
 cost_intervention_A = 10000  # Base cost in GBP for standard intervention
-cost_intervention_B = 5000  # Base cost in GBP for new intervention
+cost_intervention_B = 15000  # Base cost in GBP for new intervention
 
 qaly_intervention_A = 2 # Quality-Adjusted Life Years for A
 qaly_intervention_B = 2.5  # Quality-Adjusted Life Years for B
