@@ -11,4 +11,4 @@ This script performs a Cost-Effectiveness Analysis (CEA) of two health intervent
 
 <img src="./CE_PSA_kde.png" alt="Simulation Plot" width="800"/>
 
-<img src="./CE_plane_PSA.png" alt="Simulation Plot" width="400"/>
+<img src="./CE_plane_PSA.png" alt="Simulation Plot" width="500"/>
