@@ -58,20 +58,21 @@ qaly_intervention_B_dist = np.random.normal(qaly_intervention_B, qaly_interventi
 fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 plt.rcParams['font.family'] = 'Calibri'
 # Plot costs
+fs=20
 sns.histplot(cost_intervention_A_dist, kde=True, color="#ADD8E6", label="Intervention A", ax=axes[0],alpha=0.5)
 sns.histplot(cost_intervention_B_dist, kde=True, color="#90EE90", label="Intervention B", ax=axes[0],alpha=0.5)
-axes[0].set_title('Cost Distribution', fontsize=18, fontweight='bold')
-axes[0].set_xlabel('Cost (£)', fontsize=18, fontweight='bold')
-axes[0].set_ylabel('Frequency', fontsize=18, fontweight='bold')
+axes[0].set_title('Cost Distribution', fontsize=fs, fontweight='bold')
+axes[0].set_xlabel('Cost (£)', fontsize=fs, fontweight='bold')
+axes[0].set_ylabel('Frequency', fontsize=fs, fontweight='bold')
 axes[0].tick_params(axis='both', which='major', labelsize=14)
 axes[0].legend(frameon=False, framealpha=0.1)
 axes[0].grid(True, linestyle='--', alpha=0.2)
 # Plot QALYs
 sns.histplot(qaly_intervention_A_dist, kde=True, color="#ADD8E6", label="Intervention A", ax=axes[1],alpha=0.5)
 sns.histplot(qaly_intervention_B_dist, kde=True, color="#90EE90", label="Intervention B", ax=axes[1],alpha=0.5)
-axes[1].set_title('QALY Distribution', fontsize=18, fontweight='bold')
-axes[1].set_xlabel('QALYs', fontsize=18, fontweight='bold')
-axes[1].set_ylabel('', fontsize=18, fontweight='bold')
+axes[1].set_title('QALY Distribution', fontsize=fs, fontweight='bold')
+axes[1].set_xlabel('QALYs', fontsize=fs, fontweight='bold')
+axes[1].set_ylabel('', fontsize=fs, fontweight='bold')
 axes[1].tick_params(axis='both', which='major', labelsize=14)
 axes[1].grid(True, linestyle='--', alpha=0.2)
 plt.tight_layout()
@@ -154,6 +155,11 @@ print(PSA_results.describe())
 delta_cost = PSA_results['Discounted Cost B'] - PSA_results['Discounted Cost A']
 delta_qaly = PSA_results['QALY B'] - PSA_results['QALY A']
 
+# Calculate the mean ICER across all simulations. Can be volatile due to the influence of extreme values, especially when QALY differences are small.
+mean_icer = PSA_results['ICER'].mean()
+# Stable mean ICER provides a more stable and central estimate.
+mean_icer_stable = delta_cost.mean() / delta_qaly.mean()
+
 plt.figure(figsize=(7, 6))
 plt.rcParams['font.family'] = 'Calibri'
 plt.scatter(delta_qaly, delta_cost, color='#3498db', label='PSA results', zorder=5, s=50, alpha=0.7, edgecolors='k')
@@ -171,9 +177,9 @@ plt.xlim(-abs(max(delta_qaly)) * 1.2, abs(max(delta_qaly)) * 1.2)
 plt.ylim(-30000, 30000)
 plt.xticks(fontsize=14)
 plt.yticks(fontsize=14)
-plt.xlabel(r'$\Delta$ QALYs', fontsize=18, fontweight='bold')
-plt.ylabel(r'$\Delta$ Cost (£)', fontsize=18, fontweight='bold')
-plt.title('Cost-Effectiveness Plane', fontsize=18, fontweight='bold')
+plt.xlabel(r'$\Delta$ QALYs', fontsize=fs, fontweight='bold')
+plt.ylabel(r'$\Delta$ Cost (£)', fontsize=fs, fontweight='bold')
+plt.title(f'Cost-Effectiveness Plane (Mean ICER: £{mean_icer_stable:,.0f}/QALY)', fontsize=fs-3, fontweight='bold')
 plt.legend(loc='upper left', fontsize=12, frameon=False, framealpha=0.1)
 plt.grid(True, linestyle='--', alpha=0.2)
 # Save the figure
@@ -183,11 +189,6 @@ plt.show()
 #################################################################################################################################################################
 # Summarise the results in a DataFrame
 #################################################################################################################################################################
-# Here we calculate the mean ICER across all simulations. Can be volatile due to the influence of extreme values, especially when QALY differences are small.
-mean_icer = PSA_results['ICER'].mean()
-# Stable mean ICER provides a more stable and central estimate.
-mean_icer_stable = delta_cost.mean() / delta_qaly.mean()
-
 df_summary = pd.DataFrame({
     'Mean Discounted Cost': [PSA_results['Discounted Cost A'].mean(), PSA_results['Discounted Cost B'].mean()],
     'Mean QALYs': [PSA_results['QALY A'].mean(), PSA_results['QALY B'].mean()],
